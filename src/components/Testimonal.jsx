@@ -1,11 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import * as styles from './Testimonal.module.css';
 
-const Testimonal = ({ from, image, children }) => {
+export const Testimonal = ({ from, image, children }) => {
   return (
     <div className={`${styles.root} pb-3`}>
       <blockquote>{children}</blockquote>
@@ -42,4 +41,3 @@ Testimonal.propTypes = {
   image: PropTypes.shape({}),
 };
 
-export default Testimonal;

@@ -1,9 +1,8 @@
-import React from 'react';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 
-const StoryPopup = ({ story }) => {
+export const StoryPopup = ({ story }) => {
   return (
     <div className="story-popup">
       {story.image && (
@@ -71,4 +70,3 @@ StoryPopup.propTypes = {
   }).isRequired,
 };
 
-export default StoryPopup;

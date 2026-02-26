@@ -1,7 +1,7 @@
-import React, { useMemo, useState, useEffect } from "react";
-import { graphql, useStaticQuery, Link } from "gatsby";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
-import "./StorySpotlight.css";
+import { useMemo, useState, useEffect } from 'react';
+import { graphql, useStaticQuery, Link } from 'gatsby';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import './StorySpotlight.css';
 
 const ONE_DAY = 24 * 60 * 60 * 1000;
 

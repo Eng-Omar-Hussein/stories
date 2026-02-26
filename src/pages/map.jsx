@@ -5,7 +5,7 @@ import Seo from '../components/Seo';
 import StoriesMap from '../components/StoriesMap';
 import './MapPage.css';
 
-const MapPage = () => {
+export const MapPage = () => {
   const title = 'Jenkins Is The Way';
   const { allUserStory, allStoriesForStats } = useStaticQuery(graphql`
     query {
@@ -103,5 +103,3 @@ const MapPage = () => {
     </Layout>
   );
 };
-
-export default MapPage;

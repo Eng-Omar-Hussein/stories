@@ -54,7 +54,7 @@ const Modal = ({ isOpen, onClose }) => {
 };
 
 // Main page component
-const AllPage = () => {
+export const AllPage = () => {
   const [displayCount, setDisplayCount] = React.useState(10); // Initial number of stories to display
   const storiesPerLoad = 10; // Number of stories to load each time
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -162,5 +162,3 @@ const AllPage = () => {
     </Layout>
   );
 };
-
-export default AllPage;

@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../layout';
 import './notFound.css';
 
-const NotFoundPage = () => {
+export const NotFoundPage = () => {
   const title = 'Page not found';
 
   return (
@@ -43,4 +43,3 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;

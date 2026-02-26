@@ -1,12 +1,11 @@
 import { graphql, Link } from 'gatsby';
-import React from 'react';
 import PropTypes from 'prop-types';
 import Layout from '../layout';
 import Seo from '../components/Seo';
 import UserStory from '../components/UserStory';
 import Breadcrumb from '../components/BreadCrumb';
 
-const UserStoryPage = ({ data: { userStory: page }, pageContext }) => {
+export const UserStoryPage = ({ data: { userStory: page }, pageContext }) => {
   const title = page.title;
   const currentPath = `/user-story/${page.slug}`;
   const StoryLink = ({ direction, story }) => (
@@ -94,8 +93,6 @@ UserStoryPage.propTypes = {
     userStory: PropTypes.object.isRequired,
   }),
 };
-
-export default UserStoryPage;
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
