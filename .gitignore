@@ -13,3 +13,4 @@ static/site.webmanifest
 schema.graphql
 .idea/
 .vscode/
+.Dockerfile.swp
