@@ -49,7 +49,7 @@ npm run develop
 Open [http://localhost:8000](http://localhost:8000) on your browser to see the result
 
 ### run app using docker
-you can skip `Install Dependencies` and run app in isolated environment
+you can skip `Install Dependencies` and run app in an isolated environment
 
 ```bash
 docker build -t stories-app .
@@ -82,4 +82,5 @@ npm run format
 5. Add your changes to staging area and commit your changes
 6. Push your changes to GitHub
 7. Submit a pull request
+
 
