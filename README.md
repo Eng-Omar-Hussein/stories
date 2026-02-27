@@ -53,7 +53,7 @@ you can skip `Install Dependencies` and run app in an isolated environment
 
 ```bash
 docker build -t stories-app .
-docker run -d -p 8000:30 stories-app 
+docker run -d -p 8000:80 stories-app 
 ```
 
 

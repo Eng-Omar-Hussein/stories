@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM nginx:alpine AS production
+FROM nginx:1-alpine-slim AS production
 
 # Set environment variable for production
 ENV NODE_ENV=production
