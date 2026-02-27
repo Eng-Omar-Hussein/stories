@@ -7,7 +7,7 @@ import Layout from '../layout';
 import Seo from '../components/Seo';
 import './index.css';
 
-const IndexPage = () => {
+export default IndexPage = () => {
   const title = 'Jenkins - User Story Library';
   const { stories } = useStaticQuery(graphql`
     query FrontPageStories {
@@ -254,5 +254,3 @@ const IndexPage = () => {
     </Layout>
   );
 };
-
-export default IndexPage;

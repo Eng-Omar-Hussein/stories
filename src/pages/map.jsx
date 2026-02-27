@@ -5,7 +5,7 @@ import Seo from '../components/Seo';
 import StoriesMap from '../components/StoriesMap';
 import './MapPage.css';
 
-export const MapPage = () => {
+export default MapPage = () => {
   const title = 'Jenkins Is The Way';
   const { allUserStory, allStoriesForStats } = useStaticQuery(graphql`
     query {

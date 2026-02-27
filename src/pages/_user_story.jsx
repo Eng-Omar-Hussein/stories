@@ -5,7 +5,7 @@ import Seo from '../components/Seo';
 import UserStory from '../components/UserStory';
 import Breadcrumb from '../components/BreadCrumb';
 
-export const UserStoryPage = ({ data: { userStory: page }, pageContext }) => {
+export default UserStoryPage = ({ data: { userStory: page }, pageContext }) => {
   const title = page.title;
   const currentPath = `/user-story/${page.slug}`;
   const StoryLink = ({ direction, story }) => (
