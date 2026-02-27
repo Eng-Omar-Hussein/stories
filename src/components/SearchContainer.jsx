@@ -178,7 +178,7 @@ class Search extends Component {
   }
 }
 
-export const SearchContainer = () => {
+const SearchContainer = () => {
   const data = useStaticQuery(graphql`
     query {
       allUserStory {
@@ -197,3 +197,4 @@ export const SearchContainer = () => {
   return <Search allUserStory={data.allUserStory} />;
 };
 
+export default SearchContainer;

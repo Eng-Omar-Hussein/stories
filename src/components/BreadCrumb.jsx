@@ -1,8 +1,9 @@
+import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import * as styles from './Breadcrumb.module.css';
 
-export const Breadcrumb = ({ currentPath, currentTitle }) => {
+const Breadcrumb = ({ currentPath, currentTitle }) => {
   const pathSegments = currentPath.split('/').filter(Boolean);
   return (
     <nav aria-label="breadcrumb" className={styles.nav}>
@@ -37,3 +38,4 @@ Breadcrumb.propTypes = {
   currentTitle: PropTypes.string,
 };
 
+export default Breadcrumb;

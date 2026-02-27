@@ -7,7 +7,7 @@ import Layout from '../layout';
 import Seo from '../components/Seo';
 import './index.css';
 
-export default IndexPage = () => {
+const IndexPage = () => {
   const title = 'Jenkins - User Story Library';
   const { stories } = useStaticQuery(graphql`
     query FrontPageStories {
@@ -41,7 +41,7 @@ export default IndexPage = () => {
   // Dark Mode Detection
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
-
+    
     const checkDarkMode = () => {
       const darkModeMediaQuery = window.matchMedia(
         '(prefers-color-scheme: dark)',
@@ -60,7 +60,7 @@ export default IndexPage = () => {
   // Scroll-triggered Animation
   React.useEffect(() => {
     if (!isClient || typeof window === 'undefined') return;
-
+    
     const appeared = new WeakSet();
     const disappeared = new WeakSet();
     const isFadingOut = new WeakMap();
@@ -167,7 +167,10 @@ export default IndexPage = () => {
         Community Stories Spotlight
       </h1>
 
-      <div ref={setSection1Ref} className="stories-section spotlight-section">
+      <div
+        ref={setSection1Ref}
+        className="stories-section spotlight-section"
+      >
         <StorySpotlight />
       </div>
 
@@ -189,7 +192,10 @@ export default IndexPage = () => {
       </div>
 
       {/* Stories Section */}
-      <div ref={setSection3Ref} className="stories-section">
+      <div
+        ref={setSection3Ref}
+        className="stories-section"
+      >
         <h2 className="section-title">Latest Jenkins User Stories</h2>
         <p className="section-subtitle">
           Stories from all around the world by Jenkins User
@@ -254,3 +260,5 @@ export default IndexPage = () => {
     </Layout>
   );
 };
+
+export default IndexPage;

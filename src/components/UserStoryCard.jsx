@@ -1,8 +1,9 @@
+import React from 'react';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from './UserStoryCard.module.css';
 
-export const UserStoryCard = ({ slug, image, title, date, tag_line }) => {
+function UserStoryCard({ slug, image, title, date, tag_line }) {
   return (
     <div className={styles.card}>
       <div className={styles.cardInner}>
@@ -29,3 +30,5 @@ export const UserStoryCard = ({ slug, image, title, date, tag_line }) => {
     </div>
   );
 }
+
+export default UserStoryCard;

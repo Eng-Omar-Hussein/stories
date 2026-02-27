@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { Icon, DivIcon } from 'leaflet';
 import { TileLayer, Marker, Popup, useMap } from 'react-leaflet';
@@ -50,7 +50,7 @@ const createCustomMarker = (story, mapPin) => {
   });
 };
 
-export const StoriesMap = ({ mapPin }) => {
+const StoriesMap = ({ mapPin }) => {
   // GraphQL query to fetch stories with location data
   const { allUserStory } = useStaticQuery(graphql`
     query StoriesMapQuery {
@@ -410,3 +410,5 @@ export const StoriesMap = ({ mapPin }) => {
     </div>
   );
 };
+
+export default StoriesMap;

@@ -1,8 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-export const ImageWrapper = ({ image, alt, ...rest }) => {
+const ImageWrapper = ({ image, alt, ...rest }) => {
   if (typeof image === 'string') {
     // this is an image coming from Netlify CMS
     return <img src={image} {...rest} alt={alt} />;
@@ -19,3 +20,4 @@ ImageWrapper.propTypes = {
   alt: PropTypes.string.isRequired,
 };
 
+export default ImageWrapper;
