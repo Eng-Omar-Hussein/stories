@@ -53,9 +53,8 @@ You can skip `Install Dependencies` and run the app in an isolated environment. 
 
 ```bash
 docker build -t stories-app .
-docker run --rm -p 8000:80 stories-app
-# add -d if you prefer to run the container in the background:
-# docker run --rm -d -p 8000:80 stories-app
+docker run --rm -p 8000:8080 stories-app
+# add -d if you prefer to run the container in the background
 ```
 
 
