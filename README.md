@@ -48,12 +48,14 @@ npm run develop
 
 Open [http://localhost:8000](http://localhost:8000) on your browser to see the result
 
-### run app using docker
-you can skip `Install Dependencies` and run app in an isolated environment
+### Run app using Docker (production build)
+You can skip `Install Dependencies` and run the app in an isolated environment. The Docker image runs a production static build (served by Nginx), so it does not provide hot reload like `npm run develop`.
 
 ```bash
 docker build -t stories-app .
-docker run -d -p 8000:80 stories-app 
+docker run --rm -p 8000:80 stories-app
+# add -d if you prefer to run the container in the background:
+# docker run --rm -d -p 8000:80 stories-app
 ```
 
 
