@@ -78,7 +78,7 @@ pipeline {
               }
               steps {
                 sh '''
-                  source ./.env
+                  source ./ci.jenkins.io.env
                   npm run build
                 '''
               }
@@ -120,7 +120,7 @@ pipeline {
           }
           steps {
             sh '''
-              source ./.env
+              source ./ci.jenkins.io.env
               docker compose up --detach --wait
               docker compose run --rm stories_webapp env
               docker compose down
@@ -136,7 +136,7 @@ pipeline {
       }
       steps {
         sh '''
-          source ./.env
+          source ./ci.jenkins.io.env
           npm run build
         '''
       }
