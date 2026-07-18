@@ -5,11 +5,11 @@ services:
     ports:
       - "8000:8000"
     
-    env_file: "developement.env"
+    env_file: "development.env"
 
     volumes:
-      - .:${APP_WORKING_DIR:-/home/jenkins/agent}/workspace
-      - ./src:${APP_WORKING_DIR:-/home/jenkins/agent}/src
+      - .:/tmp/workspace
+      - ./src:/tmp/src
       - stories_node_modules:/tmp/node_modules
 
     working_dir: ${APP_WORKING_DIR:-/home/jenkins/agent}
@@ -17,11 +17,13 @@ services:
     entrypoint: []
     command: >
       sh -c "
-        ln -s /tmp/node_modules ${APP_WORKING_DIR:-/home/jenkins/agent}/node_modules || true &&
-        cp -r ${APP_WORKING_DIR:-/home/jenkins/agent}/workspace/. . || true &&
+        mkdir src || true &&
+        ln /tmp/src/* ./src/. || true &&
+        ln -s /tmp/node_modules ./node_modules || true &&
+        cp -r /tmp/workspace/. . || true &&
         node --version &&
         npm --version &&
-        npm ci &&
+        [ -d node_modules/.bin ] || npm ci &&
         npm run develop -- -H 0.0.0.0 -p 8000
       "
 
