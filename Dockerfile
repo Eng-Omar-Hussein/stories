@@ -3,13 +3,13 @@ FROM jenkinsciinfra/jenkins-agent-ubuntu-22.04:2.118.0
 
 USER root
 
-RUN mkdir -p /home/jenkins/app \
-    && chown -R jenkins:jenkins /home/jenkins/app
+RUN mkdir -p /app \
+    && chown -R jenkins:jenkins /app
 
 # Switch back to the non-root user
 USER jenkins
 
-WORKDIR /home/jenkins/app
+WORKDIR /app
 
 COPY --chown=jenkins:jenkins package*.json ./
 

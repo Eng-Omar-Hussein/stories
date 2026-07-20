@@ -18,11 +18,11 @@ services:
       watch:
         - action: sync
           path: .
-          target: /home/jenkins/app
+          target: /app
           initial_sync: true
           ignore:
             - node_modules/
         
         - action: rebuild
           path: package.json
-          target: /home/jenkins/app/package.json
+          target: /app/package.json
