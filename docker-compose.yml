@@ -1,31 +1,28 @@
 services:
   stories_webapp:
-    # TODO: track version with updatecli - ref. https://github.com/jenkins-infra/jenkins-infra/blob/efe90908529525bb3c9e61c2eb920ada3b968f1a/updatecli/updatecli.d/jenkinscontroller-tools-maven.yaml#L17-L22
-    image: jenkinsciinfra/jenkins-agent-ubuntu-22.04:2.118.0
+    build: .
     ports:
       - "8000:8000"
     
     env_file: "development.env"
 
-    volumes:
-      - .:/tmp/workspace
-      - ./src:/tmp/src
-      - stories_node_modules:/tmp/node_modules
-
-    working_dir: ${APP_WORKING_DIR:-/home/jenkins/agent}
     user: jenkins
     entrypoint: []
     command: >
       sh -c "
-        mkdir src || true &&
-        ln /tmp/src/* ./src/. || true &&
-        ln -s /tmp/node_modules ./node_modules || true &&
-        cp -r /tmp/workspace/. . || true &&
         node --version &&
         npm --version &&
-        [ -d node_modules/.bin ] || npm ci &&
         npm run develop -- -H 0.0.0.0 -p 8000
       "
-
-volumes:
-  stories_node_modules:
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /home/jenkins/app
+          initial_sync: true
+          ignore:
+            - node_modules/
+        
+        - action: rebuild
+          path: package.json
+          target: /home/jenkins/app/package.json

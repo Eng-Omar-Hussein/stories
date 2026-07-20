@@ -18,6 +18,19 @@ pipeline {
     label agentLabel
   }
 
+  environment {
+    NODE_ENV = 'production'
+    TZ = "UTC"
+    // Amount of available vCPUs, to avoid OOM - https://www.gatsbyjs.com/docs/how-to/performance/resolving-out-of-memory-issues/#try-reducing-the-number-of-cores
+    // https://github.com/jenkins-infra/jenkins-infra/tree/production/hieradata/clients/controller.ci.jenkins.io.yaml#L327
+    GATSBY_CPU_COUNT = '2'
+    // Added the below to fix permissions issue with the cache
+    GATSBY_CACHE_DIR = "${env.WORKSPACE}/.gatsby-cache"
+    GATSBY_INTERNAL_CACHE_DIR = "${env.WORKSPACE}/.cache"
+    GATSBY_TELEMETRY_DISABLED = "1"
+    NODE_OPTIONS = "--no-warnings"
+  }
+
   stages {
     stage('Test and build') {
       parallel {
@@ -78,7 +91,6 @@ pipeline {
               }
               steps {
                 sh '''
-                  source ./ci.jenkins.io.env
                   npm run build
                 '''
               }
@@ -120,7 +132,6 @@ pipeline {
           }
           steps {
             sh '''
-              source ./ci.jenkins.io.env
               docker compose up --detach --wait
               docker compose run --rm stories_webapp env
               docker compose down
@@ -136,7 +147,6 @@ pipeline {
       }
       steps {
         sh '''
-          source ./ci.jenkins.io.env
           npm run build
         '''
       }
